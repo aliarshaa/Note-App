@@ -45,6 +45,3 @@ If you have any questions, suggestions, or just want to say hi, feel free to rea
 - Twitter: [@ali_arshaa](https://twitter.com/ali_arshaa)
 - GitHub: [github.com/aliarshaa](https://github.com/aliarshaa)
 
-some notes to my self:
-controlled components: components that have their state and behavior controlled by the parent component.
-another description for controlled components: elements that their amounts control and manage by states.
