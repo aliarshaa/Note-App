@@ -1,4 +1,4 @@
-function NoteStatus({ notes }) {
+function NoteStatus({notes}) {
   const allNotes = notes.length;
   const completedNotes = notes.filter((n) => n.completed).length;
   const unCompletedNodes = allNotes - completedNotes;

@@ -1,6 +1,4 @@
-
-
-function Header({ notes, sortBy, onSort }) {
+function Header({notes, sortBy, onSort}) {
   const allNotes = notes.length;
 
   return (

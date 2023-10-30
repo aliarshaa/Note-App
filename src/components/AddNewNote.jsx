@@ -1,6 +1,6 @@
-import { useState } from "react";
+import {useState} from "react";
 
-function AddNewNote({ onAddNote }) {
+function AddNewNote({onAddNote}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 

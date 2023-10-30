@@ -1,7 +1,7 @@
 import AddNewNote from "./components/AddNewNote";
 import Header from "./components/Header";
 import NoteList from "./components/NoteList";
-import { useState } from "react";
+import {useState} from "react";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -26,8 +26,8 @@ function App() {
     const noteId = Number(e.target.value);
     return setNotes((prevNotes) =>
       prevNotes.map((note) =>
-        note.id == noteId ? { ...note, completed: !note.completed } : note
-      )
+        note.id == noteId ? {...note, completed: !note.completed} : note,
+      ),
     );
   }
 

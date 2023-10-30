@@ -1,19 +1,19 @@
 // import { useState } from "react";
 import NoteStatus from "./NoteStatus";
 
-function NoteList({ notes, onDelete, onComplete, sortBy }) {
+function NoteList({notes, onDelete, onComplete, sortBy}) {
   let sortedNotes = notes;
   if (sortBy == "earliest")
     sortedNotes = [...notes].sort(
-      (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
     ); // a-b = a > b ? 1 : -1
   if (sortBy == "latest")
     sortedNotes = [...notes].sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
     ); // b-a = a > b ? -1 : 1
   if (sortBy == "completed")
     sortedNotes = [...notes].sort(
-      (a, b) => Number(a.completed) - Number(b.completed)
+      (a, b) => Number(a.completed) - Number(b.completed),
     );
 
   return (
@@ -34,7 +34,7 @@ function NoteList({ notes, onDelete, onComplete, sortBy }) {
   );
 }
 
-function NoteItem({ note, onDelete, onComplete }) {
+function NoteItem({note, onDelete, onComplete}) {
   const options = {
     year: "numeric",
     month: "long",
