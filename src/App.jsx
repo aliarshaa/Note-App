@@ -1,50 +1,36 @@
+import "./index.css";
 import AddNewNote from "./components/AddNewNote";
-import Header from "./components/Header";
 import NoteList from "./components/NoteList";
-import {useState} from "react";
-
+import Header from "./components/Header";
+import { useState } from "react";
+import { NotesProvider } from "./context/notesContext";
 function App() {
-  const [notes, setNotes] = useState([]);
   const [sortBy, setSortBy] = useState("");
 
-  // const handleAddNote = (newNote) => {
-  //   setNotes((prevNotes) => [...prevNotes, newNote]);
+    // const handleAddNote = (newNote) => {
+  //   dispatch({type: 'add', payload: newNote})
   // };
-  function handleAddNote(newNote) {
-    setNotes((prevNotes) => [...prevNotes, newNote]);
-  }
 
-  function handleSortNote(e) {
-    return setSortBy(e.target.value);
-  }
+  // const handleDeleteNote = (id) => {
+  //   dispatch({type:'delete', payload: id})
+  // };
 
-  function handleDeleteNote(id) {
-    return setNotes((prevNotes) => prevNotes.filter((n) => n.id !== id));
-  }
-
-  function handleCompleteNote(e) {
-    const noteId = Number(e.target.value);
-    return setNotes((prevNotes) =>
-      prevNotes.map((note) =>
-        note.id == noteId ? {...note, completed: !note.completed} : note,
-      ),
-    );
-  }
+  // const handleCompleteNote = (e) => {
+  //   const noteId = Number(e.target.value);
+  //   dispatch({type:'complete', payload: noteId})
+  // };
 
   return (
-    <div className="container mx-auto w-3/5 p-4">
-      <Header notes={notes} sortBy={sortBy} onSort={handleSortNote} />
-      <hr />
-      <main className="grid grid-cols-3 mt-5 gap-x-10">
-        <AddNewNote onAddNote={handleAddNote} />
-        <NoteList
-          notes={notes}
-          sortBy={sortBy}
-          onDelete={handleDeleteNote}
-          onComplete={handleCompleteNote}
-        />
-      </main>
-    </div>
+    <NotesProvider><div className="container mx-auto w-3/5 p-4">
+    <Header  sortBy={sortBy} onSort={(e) => setSortBy(e.target.value)}/>
+    <hr />
+    <main className="grid grid-cols-3 mt-5 gap-x-10">
+      <AddNewNote  />
+      <NoteList
+        sortBy={sortBy}
+      />
+    </main>
+  </div></NotesProvider>
   );
 }
 

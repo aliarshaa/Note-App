@@ -1,10 +1,11 @@
-function Header({notes, sortBy, onSort}) {
-  const allNotes = notes.length;
+import { useNotes } from "../context/notesContext";
+function Header({ sortBy, onSort}) {
+  const notes = useNotes()
 
   return (
     <header className="flex justify-around w-full my-1 p-4">
       <h1 className="flex justify-center items-center text-2xl">
-        {`My notes(${allNotes})`}
+      <span>{notes.length}</span>
       </h1>
       <select
         name=""

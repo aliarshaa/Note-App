@@ -1,16 +1,17 @@
-// import { useState } from "react";
+import { useNotes, useDispatchNotes } from "../context/notesContext";
 import NoteStatus from "./NoteStatus";
 
-function NoteList({notes, onDelete, onComplete, sortBy}) {
+function NoteList({sortBy}) {
+  const notes = useNotes()
   let sortedNotes = notes;
   if (sortBy == "earliest")
     sortedNotes = [...notes].sort(
       (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
-    ); // a-b = a > b ? 1 : -1
+    ); 
   if (sortBy == "latest")
     sortedNotes = [...notes].sort(
       (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-    ); // b-a = a > b ? -1 : 1
+    ); 
   if (sortBy == "completed")
     sortedNotes = [...notes].sort(
       (a, b) => Number(a.completed) - Number(b.completed),
@@ -25,8 +26,6 @@ function NoteList({notes, onDelete, onComplete, sortBy}) {
           <NoteItem
             key={note.id}
             note={note}
-            onDelete={onDelete}
-            onComplete={onComplete}
           />
         ))}
       </div>
@@ -34,7 +33,8 @@ function NoteList({notes, onDelete, onComplete, sortBy}) {
   );
 }
 
-function NoteItem({note, onDelete, onComplete}) {
+function NoteItem({note}) {
+  const dispatch = useDispatchNotes()
   const options = {
     year: "numeric",
     month: "long",
@@ -49,9 +49,7 @@ function NoteItem({note, onDelete, onComplete}) {
         </h3>
         <div className="flex gap-3 justify-center items-center pt-1">
           <span
-            onClick={() => {
-              onDelete(note.id);
-            }}
+            onClick={() => dispatch({type:'delete', payload: note.id})}
             className="flex
             justify-center items-center"
           >
@@ -75,7 +73,10 @@ function NoteItem({note, onDelete, onComplete}) {
               name={note.id}
               value={note.id}
               checked={note.onComplete}
-              onChange={onComplete}
+              onChange={(e)=> {
+                const noteId = Number(e.target.value);
+      dispatch({type:'complete', payload: noteId})
+              }}
             />
           </span>
         </div>
