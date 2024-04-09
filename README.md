@@ -2,6 +2,7 @@
 
 # Note App
 
+<img width="1146" alt="demo" src="./src/assets/demo.png">
 this is a note app power by react. also we use TailwindCSS as a CSS framwork.
 
 - [Feachers](#feachers)
