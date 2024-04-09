@@ -7,19 +7,6 @@ import { NotesProvider } from "./context/notesContext";
 function App() {
   const [sortBy, setSortBy] = useState("");
 
-    // const handleAddNote = (newNote) => {
-  //   dispatch({type: 'add', payload: newNote})
-  // };
-
-  // const handleDeleteNote = (id) => {
-  //   dispatch({type:'delete', payload: id})
-  // };
-
-  // const handleCompleteNote = (e) => {
-  //   const noteId = Number(e.target.value);
-  //   dispatch({type:'complete', payload: noteId})
-  // };
-
   return (
     <NotesProvider><div className="container mx-auto w-3/5 p-4">
     <Header  sortBy={sortBy} onSort={(e) => setSortBy(e.target.value)}/>
