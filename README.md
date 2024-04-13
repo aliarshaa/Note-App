@@ -3,12 +3,17 @@
 # Note App
 
 <img width="1146" alt="demo" src="./src/assets/demo.png">
-this is a note app power by react. also we use TailwindCSS as a CSS framwork.
+
+This is a note-taking app powered by React. Additionally, we use TailwindCSS as a CSS framework.
+
+Of course, there are many note-taking apps on GitHub, so the goal is not just to create another note app, but rather to leverage React 18 and its powerful hooks and other features. Please refer to the source code for more details.
+
+Since this application does not have a database, we are using LocalStorage to save the notes. Therefore, please avoid storing any important data on this application.
 
 - [Feachers](#feachers)
 - [Instalation](#installation)
 - [Contributing](#contributing)
-- [License](#license)
+<!-- - [License](#license) -->
 - [Contact](#contact)
 
 ## Feachers
@@ -23,7 +28,10 @@ this is a note app power by react. also we use TailwindCSS as a CSS framwork.
 Install Note App with npm
 
 ```bash
-  npm init
+  npm install
+```
+```bash
+  npm run dev
 ```
 
 ## contributing
@@ -34,14 +42,13 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-## License
+<!-- ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/) -->
 
 ## Contact
 
 If you have any questions, suggestions, or just want to say hi, feel free to reach out:
 
-- Email: aliarshaexcellent@gmail.com
-- Twitter: [@ali_arshaa](https://twitter.com/ali_arshaa)
+- Email: aliarsha12m@gmail.com
 - GitHub: [github.com/aliarshaa](https://github.com/aliarshaa)
